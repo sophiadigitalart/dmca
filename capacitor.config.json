@@ -1,0 +1,6 @@
+{
+    "appId": "com.sophiadigitalart.dmca",
+    "appName": "dmca",
+    "bundledWebRuntime": false,
+    "webDir": "build"
+    }
