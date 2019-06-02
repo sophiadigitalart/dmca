@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Login from "./Login";
+import Home from "./Home";
+import { IonApp, IonSplitPane, IonPage } from '@ionic/react';
+
+import DisconnectedRoute from "./DisconnectedRoute";
+import ConnectedRoute from "./ConnectedRoute";
+
+const App = () => (
+  <Router>
+    <div id="app">
+      <IonApp>
+        <IonSplitPane contentId="main">
+          <IonPage id="main">
+            <Switch>
+              <DisconnectedRoute path="/auth/login" component={Login} />
+              <ConnectedRoute path="/" component={Home} />
+            </Switch>
+          </IonPage>
+        </IonSplitPane>
+      </IonApp>
     </div>
-  );
-}
+  </Router>
+);
 
 export default App;
